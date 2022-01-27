@@ -1,0 +1,109 @@
+<h2 class="text-center mt-3">Template driven form</h2>
+
+
+<div class="d-flex flex-row justify-content-center mt-5 g-3 mb-3">
+<div class="col-4 box">
+<form  ngForm #cont = "ngForm"  (ngSubmit)="submit(cont.value)" required>
+
+      <label for="exampleInputEmail1" class="form-label">First name</label>
+      <span class="text-danger" *ngIf="user.invalid">*</span>
+      <span class="text-success" *ngIf="user.valid">*</span>
+      <input type="email" class="form-control" id="exampleInputEmail1" 
+      name="user" ngModel #user="ngModel" autocomplete="off" required minlength="2" 
+      maxlength="12" [pattern]="unamePattern" >
+      <div   *ngIf="user.touched&&user.invalid" class="form-text text-danger">
+        <div *ngIf="user.errors?.['required']">Name need to Filledout</div>
+        <div *ngIf="user.errors?.['pattern']">Enter valid Name</div>
+      </div>
+
+
+    
+      <label for="exampleInputPassword1" class="form-label">Last name</label>
+      <span class="text-danger" *ngIf="psw.invalid">*</span>
+      <span class="text-success" *ngIf="psw.valid">*</span>
+      <input type="text" class="form-control" id="" name="psw" ngModel  #psw="ngModel"
+       autocomplete="off" maxlength="8" [pattern]="unamePattern" required minlength="2">
+
+      <div   *ngIf="psw.touched && psw.invalid" class="form-text text-danger">
+      <div *ngIf="psw.errors?.['required']">Name need to Filledout</div>
+      <div *ngIf="psw.errors?.['pattern']">Enter valid Lastname</div>
+      </div>
+    
+
+
+
+        <label for="exampleInputEmail1" class="form-label">UserID</label>
+        <span class="text-danger" *ngIf="username.invalid">*</span>
+        <span class="text-success" *ngIf="username.valid">*</span>
+        <input type="email" class="form-control"  name="username" 
+        ngModel #username="ngModel" autocomplete="off" [pattern]="userid" required >
+
+        <div   *ngIf="username.touched&&username.invalid" class="form-text text-danger">
+          <div *ngIf="username.errors?.['required']">User Id need to Filledout</div>
+          <div *ngIf="username.errors?.['pattern']">Enter valid User Id</div>
+          </div>
+        
+
+
+      <div class="">
+        <label for="exampleInputEmail1" class="form-label">Street</label>
+        <span class="text-danger" *ngIf="street.invalid">*</span>
+        <span class="text-success" *ngIf="street.valid">*</span>
+        <input type="email" class="form-control" id="" aria-describedby="emailHelp" name="street" ngModel #street="ngModel" autocomplete="off"required minlength="7">
+        
+        <div   *ngIf="street.touched&&street.invalid" class="form-text text-danger">
+          <div *ngIf="street.errors?.['required']">Please Enter the street name</div>
+          <div *ngIf="street.errors?.['minlength']">street name should be minimum 7 characters</div>
+          </div>
+      </div>
+
+
+        <label for="exampleInputEmail1" class="form-label">State</label>
+        <span class="text-danger" *ngIf="state.invalid">*</span>
+        <span class="text-success" *ngIf="state.valid">*</span>
+        <input type="email" class="form-control" id="" aria-describedby="emailHelp" name="state" ngModel #state="ngModel" autocomplete="off"required minlength="3">
+        <div   *ngIf="state.touched&&state.invalid" class="form-text text-danger">
+          <div *ngIf="state.errors?.['required']">Please Enter the state name</div>
+          <div *ngIf="state.errors?.['minlength']">state name should be minimum 3 characters</div>
+          </div>
+
+        <label for="exampleInputEmail1" class="form-label">City</label>
+        <span class="text-danger" *ngIf="city.invalid">*</span>
+        <span class="text-success" *ngIf="city.valid">*</span>
+        <input type="email" class="form-control" id="" aria-describedby="emailHelp" name="city" ngModel #city="ngModel" autocomplete="off" required minlength='4'>
+        <div   *ngIf="city.touched&&city.invalid" class="form-text text-danger">
+          <div *ngIf="city.errors?.['required']">Please Enter the city name</div>
+          <div *ngIf="city.errors?.['minlength']">city name should be minimum 4 characters</div>
+          </div>
+
+
+        <label for="exampleInputEmail1" class="form-label">Zipcode</label>
+        <span class="text-danger" *ngIf="zipcode.invalid">*</span>
+        <span class="text-success" *ngIf="zipcode.valid">*</span>
+        <input type="email" class="form-control" id="" aria-describedby="emailHelp" name="zipcode" ngModel #zipcode="ngModel" autocomplete="off" required [pattern]="zip" >
+        <div   *ngIf="zipcode.touched&&zipcode.invalid" class="form-text text-danger">
+          <div *ngIf="zipcode.errors?.['required']">Please Enter the zipcode name</div>
+          <div *ngIf="zipcode.errors?.['pattern']">zipcode should be 6 numbers</div>
+          </div>
+       
+
+    <button type="submit" class="btn btn-primary mt-3" [disabled] ="!cont.valid">Submit</button>
+
+
+  </form>
+</div>
+</div> 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
